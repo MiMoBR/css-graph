@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #222;
+}
+li{
+  color: white;
+}
+.area-chart {
+  /* Reset */
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  /* Dimensions */
+  width: 100%;
+  max-width: var(--chart-width, 600px);
+  height: var(--chart-height, 300px);
+
+  /* Layout */
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  flex-direction: row;
+}
+ul.area-chart,
+ol.area-chart {
+  list-style: none;
+}
+.area-chart > * {
+  /* Even size items */
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+
+  /* Color */
+  background: var(--color, rgba(240, 50, 50, .75));
+  clip-path: polygon(
+    0% calc(100% * (1 - var(--start))),
+    100% calc(100% * (1 - var(--end))),
+    100% 100%,
+    0% 100%
+  );
+}
+	</style>
+</head>
+<body>
+	<ul class="area-chart">
+	  <li style="--start: 0.2; --end: 0.8;"> 40% </li>
+	  <li style="--start: 0.2; --end: 0.8;"> 80% </li>
+	  <li style="--start: 0.8; --end: 0.6;"> 60% </li>
+	  <li style="--start: 0.6; --end: 1.0;"> 100% </li>
+	  <li style="--start: 1.0; --end: 0.3;"> 30% </li>
+	</ul>
+</body>
+</html>
